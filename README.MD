@@ -6,5 +6,7 @@ BreakingLang a programming language written in Javascript inspired by the TV ser
 
 Has Typescript-like syntax, heres a demo.
 
-```typescript
-meff 
+```php
+meth name: string = 'Rigby'
+jesse: 'Hello $name'
+```
