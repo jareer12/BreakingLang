@@ -1,2 +1,2 @@
-meff age: int = 1000000
-jesse: age
+meth name: string = 'Rigby'
+jesse: 'Hello $name'
