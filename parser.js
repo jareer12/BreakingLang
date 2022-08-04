@@ -46,17 +46,17 @@ module.exports = function main(content) {
 
       const key = token.split(":")[0];
       const isConstant = name.startsWith("meth");
-      const type = token.split(":")[1].replace(" ", "");
+      const type = token.split(":")[1].replace(/ /gi, "");
       const valu = parseTypeValue(type, value.replace(/'*'/gims, ""));
-      console.log(valu);
       const val = valu.toString().startsWith(" ") ? valu.slice(1) : valu;
 
-      console.log(key);
-      console.log(type);
-
-      if (val) {
-        if (val.length <= 0 || !val.length) return;
-        const out = val.startsWith(" ") ? val.slice(1) : val;
+      if (val != null) {
+        if (type === "string") {
+          if (val.length <= 0 || !val.length) return;
+        }
+        const out = (val.toString() || val).startsWith(" ")
+          ? val.slice(1)
+          : val;
 
         if (variables[key] && variables[key].isConstant === true) {
           console.warn(
@@ -68,7 +68,7 @@ module.exports = function main(content) {
           name: key,
           type: type,
           isConstant: isConstant,
-          value: out.replace(/\r/gi, ""),
+          value: type === "string" ? out.replace(/\r/gi, "") : out,
         };
       } else {
       }

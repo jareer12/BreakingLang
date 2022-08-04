@@ -1,2 +1,8 @@
 meth name: string = 'Rigby'
 jesse: 'Hello $name'
+
+meth age: int = 1000
+jesse: $age
+
+meth car: string = 'Audi'
+jesse: '$car'
